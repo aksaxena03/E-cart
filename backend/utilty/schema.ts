@@ -34,6 +34,11 @@ const userSchema=new mongoose.Schema(
 export const user = mongoose.model("user", userSchema);
 
 const productSchema = new mongoose.Schema({
+    productId: {
+        type: String,
+        unique: true,
+        default: function() { return this._id.toString(); }
+    },
     productImage:String,
     productName: {
         type: String,
@@ -53,7 +58,7 @@ export const product =mongoose.model("product",productSchema)
 
 
 const cartSchema = new mongoose.Schema({
-    productId:{type:String,required:true},
+    productId:{type:String},
     productName: {
         type: String,
         required: [true, "item name has to be"],
