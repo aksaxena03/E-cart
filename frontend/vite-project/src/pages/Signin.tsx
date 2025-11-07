@@ -45,7 +45,7 @@ export default function Signin() {
                 </form>
                 <button type="submit" onClick={onclickhandler} className="w-full mt-6 bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-4 rounded-lg transition-colors duration-200">Sign In</button>
                 <p className="mt-6 text-center text-sm text-gray-600">
-                    New user? <a href="/signup" className="font-medium text-yellow-600 hover:text-yellow-500">Create an account</a>
+                    New user? <a href="/" className="font-medium text-yellow-600 hover:text-yellow-500">Create an account</a>
                 </p>
             </div>
         </div>

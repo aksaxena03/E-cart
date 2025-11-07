@@ -76,16 +76,18 @@ app.post("/auth/Signup",async (req, res) => {
 })
 app.post("/auth/Signin", async (req, res) => {
     const parsed = UserSignin.safeParse(req.body)
+    console.log(parsed.data)
     if (!parsed.success) {
         return res.status(404).json({ message: "invalid credentials" })
     }
     let { password, email } = req.body
+    console.log(password,email)
     const findUser = await user.findOne({ email })
     if (!findUser) {
         return res.status(401).json({ message: "Authentication failed: User not found" });
     }
 
-    if (typeof password === "string" && await bcrypt.compare(password, findUser.password)) {
+    if (await bcrypt.compare(password, findUser.password)) {
         const secret = process.env.JWT_SECRET ||"jwt_secret";
         if (!secret) {
             return res.status(500).json({ message: 'Server configuration error: JWT secret not set.' });

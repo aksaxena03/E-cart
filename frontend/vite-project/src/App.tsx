@@ -7,6 +7,7 @@ import Cart from './pages/Cart'
 import Checkout from './pages/Checkout'
 import Orders from './pages/Orders'
 import Navbar from './component/Navbar'
+import Mock from './pages/Mock'
 
 // This component will act as a layout for the protected routes
 const AppLayout = () => (
@@ -21,6 +22,7 @@ function App() {
         <Routes>
             <Route path='/' element={<Signup />} />
             <Route path='/signin' element={<Signin />} />
+            <Route path='/mock' element={<Mock />} />
             <Route element={<AppLayout />}>
                 <Route path='/dashboard' element={<Dashboard />} />
                 <Route path='/cart' element={<Cart />} />
